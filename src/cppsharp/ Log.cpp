@@ -6,7 +6,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h" // 控制台彩色输出
 #include "spdlog/sinks/rotating_file_sink.h" // 轮转文件 Sink
 #include <locale>
-// 定义全局共享的 logger 实例
+// 定义全局共享的 logger 实例 保存文件utf8带BOM的
 std::shared_ptr<spdlog::logger> Log::g_Logger;
 
 void Log::Init()
