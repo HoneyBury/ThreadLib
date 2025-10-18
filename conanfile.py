@@ -42,7 +42,7 @@ class MyProjectConan(ConanFile):
 
     license = "MIT"
     author = "HoneyBury zoujiahe389@gmail.com"
-    url = "https://github.com/HoneyBury/CppSharp.git"
+    url = "https://github.com/HoneyBury/ThreadLib.git"
     topics = ("cpp", "cmake", "conan", "template", "scaffolding")
 
     # 2. Binary Configuration

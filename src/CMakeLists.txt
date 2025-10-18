@@ -1,9 +1,18 @@
-# src/CMakeLists.txt (修改后)
 
-# 1. 使用项目名创建核心库，而不是硬编码的 "cppsharp"
-add_library(${PROJECT_NAME} STATIC
-        cppsharp/my_lib.cpp
-        cppsharp/my_lib.hpp
+
+# 1. 自动查找所有源文件和头文件
+file(GLOB_RECURSE THREADLIB_SOURCES 
+    "ThreadLib/*.cpp"
+    "ThreadLib/*.h"
+    "ThreadLib/*.hpp"
+    "cppsharp/*.cpp"
+    "cppsharp/*.h"
+    "cppsharp/*.hpp"
+)
+
+# 2. 使用这些文件创建库
+add_library(${PROJECT_NAME} STATIC 
+    ${THREADLIB_SOURCES}
 )
 
 # 2. 设置库的属性
