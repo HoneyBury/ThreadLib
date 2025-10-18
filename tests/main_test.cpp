@@ -2,7 +2,7 @@
 // Created by HoneyBury on 25-6-22.
 //
 #include <gtest/gtest.h>
-#include "cppsharp/my_lib.hpp"
+#include "../src/cppsharp/my_lib.hpp"
 
 // 一个简单的测试 fixture (如果需要)
 class MyLibTest : public ::testing::Test {
