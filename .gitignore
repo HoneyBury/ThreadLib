@@ -11,7 +11,7 @@ install/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
-
+CMakeUserPresets.json
 # Conan files
 conan.lock
 conanbuild.sh
