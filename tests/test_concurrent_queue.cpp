@@ -46,9 +46,9 @@ TEST(ConcurrentQueueTest, StopBehavior) {
 TEST(ConcurrentQueueTest, MPMCStressTest) {
     cppthreadflow::ConcurrentQueue<int> q;
 
-    const int num_producers = 4;
-    const int num_consumers = 4;
-    const int items_per_producer = 10000;
+     constexpr int num_producers = 4;
+     constexpr int num_consumers = 4;
+     constexpr int items_per_producer = 10000;
 
     std::vector<std::thread> producers;
     std::vector<std::thread> consumers;
@@ -56,22 +56,24 @@ TEST(ConcurrentQueueTest, MPMCStressTest) {
     std::atomic<int> items_consumed (0);
 
     // 创建生产者线程
+    producers.reserve(num_producers);
     for (int i = 0; i < num_producers; ++i) {
         producers.emplace_back([&]() {
             for (int j = 0; j < items_per_producer; ++j) {
                 q.push(j);
-                items_produced++;
+                ++items_produced;
             }
         });
     }
 
     // 创建消费者线程
+    consumers.reserve(num_consumers);
     for (int i = 0; i < num_consumers; ++i) {
         consumers.emplace_back([&]() {
             int val;
             // 只要队列没有被停止，就一直消费
             while (q.pop(val)) {
-                items_consumed++;
+                ++items_consumed;
             }
         });
     }

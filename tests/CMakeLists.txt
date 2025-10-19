@@ -11,6 +11,7 @@ add_executable(run_tests
         test_thread_pool.cpp
         # 如果还有其他测试文件，都在这里添加
         main_test.cpp
+        test_scheduler.cpp
 )
 
 # 2. 为这个单一的测试目标链接你的库和 GTest
