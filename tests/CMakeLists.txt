@@ -12,6 +12,9 @@ add_executable(run_tests
         # 如果还有其他测试文件，都在这里添加
         main_test.cpp
         test_scheduler.cpp
+        test_semaphore.cpp
+        test_latch.cpp
+        test_barrier.cpp
 )
 
 # 2. 为这个单一的测试目标链接你的库和 GTest
