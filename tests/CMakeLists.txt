@@ -15,6 +15,7 @@ add_executable(run_tests
         test_semaphore.cpp
         test_latch.cpp
         test_barrier.cpp
+        test_concurrent_hash_map.cpp
 )
 
 # 2. 为这个单一的测试目标链接你的库和 GTest

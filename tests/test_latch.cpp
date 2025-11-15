@@ -45,7 +45,6 @@ TEST(LatchTest, StartSignal) {
     std::atomic<int> threads_ready = 0;
     std::atomic<int> threads_released = 0;
     std::vector<std::thread> workers;
-
     for (int i = 0; i < num_threads; ++i) {
         workers.emplace_back([&]() {
             // 线程准备就绪
