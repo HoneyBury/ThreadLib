@@ -65,7 +65,20 @@ class ConcurrentQueue {
     }
     cond_.notify_all();
   }
-
+  /**
+       * @brief 尝试从队列弹出元素（非阻塞）。
+       * @param item 用于接收元素的引用。
+       * @return 如果成功弹出返回 true，队列为空则立即返回 false。
+       */
+  bool try_pop(T& item) {
+    std::unique_lock<std::mutex> lock(mutex_);
+    if (queue_.empty()) {
+      return false;
+    }
+    item = std::move(queue_.front());
+    queue_.pop();
+    return true;
+  }
  private:
   std::queue<T> queue_;
   std::mutex mutex_;
