@@ -17,6 +17,7 @@ add_executable(run_tests
         test_barrier.cpp
         test_concurrent_hash_map.cpp
         test_work_stealing_thread_pool.cpp
+        test_task_flow.cpp
 )
 
 # 2. 为这个单一的测试目标链接你的库和 GTest
